@@ -1,0 +1,73 @@
+version: '3.9'
+services:
+  jslab:
+    image: hubcane/jslab:basic
+    working_dir: /hc/jslab
+    container_name: jslab
+    privileged: true
+    env_file:
+      - ./.env
+    tty: true
+    ports:
+      - 1122:22
+      - 81:80
+      - 5173:5173
+      - 8888:8888
+      - 8001:8000
+    depends_on:
+      - pgsql
+      - redis
+    networks:
+      - sd_con
+    volumes:
+      - ./data:/hc/jslab/data
+      - ./.env:/hc/jslab/jslab.env
+      - ./static:/hc/jslab/static
+    command: sh -c "service ssh start && tail -f /dev/null"            
+
+  nginx:
+    container_name: nginx
+    image: hubcane/nginx:basic
+    ports: 
+      - "1222:22"
+      - "80:80/tcp"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx/:/etc/nginx/
+      - ./nginx/log:/__log/
+      - ./static:/hc/jslab/static/
+    environment:
+      - TZ=Asia/Seoul
+    depends_on:
+      - jslab
+    networks:
+      - sd_con      
+    command: sh -c "service ssh start && nginx -g 'daemon off;'"
+
+  pgsql:
+    image: postgres:16.13-trixie
+    restart: always
+    container_name: pgsql
+    env_file:
+      - ./.env
+    ports: 
+      - 5432:5432
+    networks:
+      - sd_con    
+    volumes:
+      - ./pgsql:/var/lib/postgresql/data
+
+  redis:
+    image: redis:8.6.2-trixie
+    restart: always
+    container_name: redis
+    env_file:
+      - ./.env
+    ports: 
+      - 6379:6379
+    networks:
+      - sd_con
+
+networks:
+  sd_con:
+    driver: bridge
