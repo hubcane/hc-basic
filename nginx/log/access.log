@@ -42,3 +42,4 @@
 192.168.0.137 - - [30/Mar/2026:21:18:31 +0900] "GET /static/assets/index-D90rAwKQ.js HTTP/1.1" 200 315493 "http://192.168.0.84/react/portal/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
 192.168.0.137 - - [30/Mar/2026:21:18:31 +0900] "GET /static/assets/index-C32mXEEm.css HTTP/1.1" 200 5592 "http://192.168.0.84/react/portal/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
 192.168.0.137 - - [30/Mar/2026:21:18:38 +0900] "GET /static/assets/index-C32mXEEm.css HTTP/1.1" 304 0 "http://192.168.0.84/react/portal/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+172.19.0.1 - - [01/Apr/2026:21:39:09 +0900] "GET /django/helloworld/ HTTP/1.1" 200 43 "-" "curl/8.5.0"

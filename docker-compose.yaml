@@ -22,7 +22,7 @@ services:
       - ./data:/hc/jslab/data
       - ./.env:/hc/jslab/jslab.env
       - ./static:/hc/jslab/static
-    command: sh -c "service ssh start && bash __init.sh && bash __build.sh && tail -f /dev/null"            
+    command: sh -c "service ssh start && bash __init.sh && tail -f /dev/null"            
 
   nginx:
     container_name: nginx
