@@ -1,4 +1,4 @@
-# hc-basic
+# jslab-basic
 
 Docker Compose 기반 개발/운영 환경 구성 프로젝트.
 JupyterLab + Nginx + PostgreSQL + Redis 서비스를 포함합니다.
