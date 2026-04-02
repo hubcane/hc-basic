@@ -39,7 +39,7 @@ hc-basic/
 
 ```bash
 cp .env.example .env
-# .env 파일에 DB 비밀번호 등 설정
+# .env 파일에 PGSQL 접속정보 입력
 ```
 
 ### 서비스 실행
